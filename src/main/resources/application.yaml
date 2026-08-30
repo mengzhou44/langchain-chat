@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+
+gemini:
+  api-key: ${GEMINI_API_KEY:}
+  model: gemini-3.6-flash
