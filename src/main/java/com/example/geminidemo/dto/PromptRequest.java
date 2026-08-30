@@ -1,4 +1,4 @@
-package com.example.geminidemo;
+package com.example.geminidemo.dto;
 
-public record PromptRequest(String prompt) {
+public record PromptRequest(String sessionId, String prompt) {
 }

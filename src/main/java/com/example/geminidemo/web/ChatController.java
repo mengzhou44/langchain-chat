@@ -1,5 +1,8 @@
-package com.example.geminidemo;
+package com.example.geminidemo.web;
 
+import com.example.geminidemo.dto.PromptRequest;
+import com.example.geminidemo.dto.PromptResponse;
+import com.example.geminidemo.service.GeminiService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +21,7 @@ public class ChatController {
 
     @PostMapping
     public ResponseEntity<PromptResponse> chat(@RequestBody PromptRequest request) {
-        String answer = geminiService.ask(request.prompt());
+        String answer = geminiService.ask(request.sessionId(), request.prompt());
         return ResponseEntity.ok(new PromptResponse(answer));
     }
 }
